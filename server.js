@@ -30,12 +30,22 @@ mongoose.connect("mongodb://localhost:27017/api_web_tech_assignment",()=> {
 
 const userid='OD100'
 
-//display  customer list
+//display  customer list in ejs
 app.get("/customer", (req, res)=> {
     customerModal.find().then((customerData)=> {
+       
        res.render("customer",{customerData})
     })
 });
+
+//display  customer list in postman
+app.get("/customer1", (req, res)=> {
+    customerModal.find().then((customerData)=> {
+       
+       res.send(customerData)
+    })
+});
+
 
 //add customer
 app.post("/customer/add", (req, res)=> {
@@ -53,7 +63,7 @@ app.post("/customer/add", (req, res)=> {
     })
 });
 
-//get all inventory
+//get all inventory in ejs
 app.get("/inventory", (req, res)=> {
     
     inventoryModal.find().then((inventoryData)=> {
@@ -62,8 +72,17 @@ app.get("/inventory", (req, res)=> {
     
 });
 
+//get all inventory in postman
+app.get("/inventory1", (req, res)=> {
+    
+    inventoryModal.find().then((inventoryData)=> {
+        res.send(inventoryData)
+     })
+    
+});
 
-//list only electornic inventory
+
+//list only electornic inventory in ejs
 app.get("/inventory/electronics", (req, res)=> {
     
     inventoryModal.find({inventory_type:"Electronics"}).then((inventoryData)=> {
@@ -72,7 +91,7 @@ app.get("/inventory/electronics", (req, res)=> {
     
 });
 
-//list only furniture
+//list only furniture in ejs
 app.get("/inventory/furniture", (req, res)=> {
     
     inventoryModal.find({inventory_type:"Furniture"}).then((inventoryData)=> {
@@ -81,6 +100,23 @@ app.get("/inventory/furniture", (req, res)=> {
     
 });
 
+//list only electornic inventory in postman
+app.get("/inventory/electronics1", (req, res)=> {
+    
+    inventoryModal.find({inventory_type:"Electronics"}).then((inventoryData)=> {
+        res.send(inventoryData)
+     })
+    
+});
+
+//list only furniture in postman
+app.get("/inventory/furniture1", (req, res)=> {
+    
+    inventoryModal.find({inventory_type:"Furniture"}).then((inventoryData)=> {
+        res.send(inventoryData)
+     })
+    
+});
 
 //add  inventory
 app.post("/inventory/add", (req, res)=> {
@@ -100,7 +136,7 @@ app.post("/inventory/add", (req, res)=> {
 });
 
 
-//list order
+//list order in ejs
 app.get("/order", (req, res)=> {
     
     orderModal.find().then((orderData)=> {
@@ -109,6 +145,14 @@ app.get("/order", (req, res)=> {
     
 });
 
+//list order in postman
+app.get("/order1", (req, res)=> {
+    
+    orderModal.find().then((orderData)=> {
+        res.send(orderData)
+     })
+    
+});
 //create order post
 app.post("/order", (req, res)=> {
 
