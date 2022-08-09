@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="/style.css">
+   
+
+    <style type="text/css">
+   .container { max-width: 100%;
+     margin:5px;
+    display: flex;
+    margin-top: 50px;
+    align-items: flex-start;
+    justify-content: center;}
+
+    .tablename{
+        background-color: yellow
+    }
+
+    .tablehead{
+        background-color: royalblue;
+        color:aliceblue
+    }
+
+ td,th{
+    padding: 5px;
+    text-align: center;
+ }
+        
+    </style>
+</head>
+<body class="home-body">
+   
+<div class="container">
+            <table border="1">
+                <tr class="tablename">
+                    <th colspan="3">Customer Table
+                 </tr>
+                <tr class="tablehead">
+                    <th>customer_id</th><th>customer_name</th><th>email</th>
+                 </tr>
+
+                 <% customerData.forEach(customer => { %>
+                 <tr>
+                    <td><%= customer.customer_id %> </td>
+                    <td><%= customer.customer_name %></td>
+                    <td><%= customer.email %> </td>
+                    
+                 </tr>
+               
+                <% }) %>
+            </table>       
+</div>
+
+
+
+</body>
+</html>

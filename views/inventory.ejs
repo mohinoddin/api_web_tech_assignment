@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="/style.css">
+   <style type="text/css">
+    .container { max-width: 100%;
+     margin:5px;
+    display: flex;
+    margin-top: 50px;
+    align-items: flex-start;
+    justify-content: center;}
+
+    .tablename{
+        background-color: yellow
+    }
+
+    .tablehead{
+        background-color: royalblue;
+        color:aliceblue
+    }
+
+ td,th{
+    padding: 5px;
+  text-align: center;
+ }
+          
+      </style>
+</head>
+<body class="home-body">
+   
+<div class="container">
+            <table border="1">
+                <tr class="tablename">
+                    <th colspan="4">Inventory Table
+                 </tr>
+                <tr class="tablehead">
+                    <th>inventory_id</th><th>inventory_type</th><th>item_name</th><th>available_quantity</th>
+                 </tr>
+
+                 <% inventoryData.forEach(inventorydata => { %>
+                 <tr>
+                    <td><%= inventorydata.inventory_id %> </td>
+                    <td><%= inventorydata.inventory_type %></td>
+                    <td><%= inventorydata.item_name %> </td>
+                    <td><%= inventorydata.available_quantity %> </td>
+                    
+                 </tr>
+               
+                <% }) %>
+            </table>       
+</div>
+
+
+
+</body>
+</html>
